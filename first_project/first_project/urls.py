@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf.urls import include#import the include()
 from first_app import views #import views.py
 urlpatterns = [
-    url(r'^$',views.index,name="index"),
+    url(r'^$',views.index,name="index"),# homepage link, content views.link
+    url(r'^first_app/',include('first_app.urls')),# allow us to look for url with the pattern www.domainname.com/first_app/…
     url(r'^admin/', admin.site.urls),
 ]

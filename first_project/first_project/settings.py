@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))# BASE_DIR is the path of first_project
+TEMPLATES_DIR = os.path.join(BASE_DIR,"templates")#build template directory by join to dir together
+STATIC_DIR = os.path.join(BASE_DIR,"static")#build static directory
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'first_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR,],#label the template folder path
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,4 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/'# "domainname/static/images" to access the static files
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
